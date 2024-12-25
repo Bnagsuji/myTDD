@@ -22,36 +22,49 @@ public class PasswordStrengthMeter {
 //      값이 null이거나 빈 경우 INVALID
         if(s==null|| s.isEmpty()) return PasswordStrength.INVALID;
 
-//        4. 숫자조건 이외에 모든 요건 충족시 NORMAL 리턴해야하므로 조건 만들기
-        boolean containsNum = meetNumberCondition(s);
-        boolean enoughLength = false;
+        //충족하는 조건의 개수를 세기위한 변수
+        int metCnt = 0;
+
         //길이조건 충족 if문
         if(s.length()>=8){
-            enoughLength=true;
+            metCnt++;
+        }
+
+//        4. 숫자조건 이외에 모든 요건 충족시 NORMAL 리턴해야하므로 조건 만들기
+        if(meetNumberCondition(s)){
+            metCnt++;
         }
         //대문자 조건 충족치 않을시 NORMAL
-        boolean containsUpperCase = meetUpperCaseCondition(s);
+        if(meetUpperCaseCondition(s)){
+            metCnt++;
+        }
 
-//      길이조건만 충족시
-        if(enoughLength && !containsNum && !containsUpperCase) return PasswordStrength.WEAK;
+        //조건 하나만 충족시
+        if(metCnt <=1) return PasswordStrength.WEAK;
+        if(metCnt ==2) return PasswordStrength.NORMAL;
 
-//      숫자조건만 충족시
-        if(!enoughLength && containsNum && !containsUpperCase) return PasswordStrength.WEAK;
 
-//      대문자조건만 충족시
-        if(!enoughLength && !containsNum && containsUpperCase) return PasswordStrength.WEAK;
+////      길이조건만 충족시
+//        if(enoughLength && !containsNum && !containsUpperCase) return PasswordStrength.WEAK;
+//
+//
+////      숫자조건만 충족시
+//        if(!enoughLength && containsNum && !containsUpperCase) return PasswordStrength.WEAK;
+//
+////      대문자조건만 충족시
+//        if(!enoughLength && !containsNum && containsUpperCase) return PasswordStrength.WEAK;
 
 
 
         //길이 조건만 미충족시 NORMAL
 //        if(s.length()<8) return PasswordStrength.NORMAL;
-        if(!enoughLength) return PasswordStrength.NORMAL;
-
-        //숫자  조건만 미충족시 NORMAL
-        if(!containsNum) return PasswordStrength.NORMAL;
-
-        //대문자 조건만 미충족시 NORMAL
-        if(!containsUpperCase) return PasswordStrength.NORMAL;
+//        if(!enoughLength) return PasswordStrength.NORMAL;
+//
+//        //숫자  조건만 미충족시 NORMAL
+//        if(!containsNum) return PasswordStrength.NORMAL;
+//
+//        //대문자 조건만 미충족시 NORMAL
+//        if(!containsUpperCase) return PasswordStrength.NORMAL;
 
 
 

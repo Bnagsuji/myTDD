@@ -105,5 +105,10 @@ public class PwStrengthMeterTest {
     }
 
 
+    @Test
+    @DisplayName("아무것도 충족하지 않은 경우 WEAK")
+    void noMeetAllCondition() {
+        assertStrength("asd",PasswordStrength.WEAK);
+    }
 
 }
