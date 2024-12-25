@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="chap02.PwStrengthMeterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-22T15:16:22" hostname="LAPTOP-IOCK2UPC" time="0.035">
+<testsuite name="chap02.PwStrengthMeterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-25T09:54:50" hostname="LAPTOP-IOCK2UPC" time="0.034">
   <properties/>
-  <testcase name="숫자 조건만 충족한 경우 WEAK 리턴" classname="chap02.PwStrengthMeterTest" time="0.035"/>
+  <testcase name="아무것도 충족하지 않은 경우 WEAK" classname="chap02.PwStrengthMeterTest" time="0.034"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
